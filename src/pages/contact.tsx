@@ -55,11 +55,12 @@ const ContactPage: React.FC<IContactPage> = ({
     setIsLoading(true);
 
     emailjs
-      .send(emailjsServiceId, emailjsTemplateId,  {
+      .send("service_onl47je",
+        "template_4be4mpe",  {
         from_name: name,
         from_email: email,
         message: message,
-      }, emailjsPublicKey)
+      }, "V5ZeZfa5bsz4x_NRu")
       .then(
         (result) => {
           clearInput();
