@@ -22,15 +22,17 @@ import ErrorMessage from "../components/ErrorMessage";
 import emailjs, { init } from "emailjs-com";
 
 interface IContactPage {
+  emailjsPublicKey: string;
+  emailjsTemplateId: string;
   emailjsServiceId: string;
-  emailjsUserId: string;
 }
 
 const ContactPage: React.FC<IContactPage> = ({
-  emailjsServiceId,
-  emailjsUserId,
+  emailjsPublicKey,
+  emailjsTemplateId,
+  emailjsServiceId
 }) => {
-  init(emailjsUserId);
+  init(emailjsPublicKey);
 
   const toast = useToast();
 
@@ -174,8 +176,9 @@ export default ContactPage;
 export async function getStaticProps() {
   return {
     props: {
+      emailjsPublicKey: process.env.EMAILJS_PUBLIC_KEY,
+      emailjsTemplateId: process.env.EMAILJS_TEMPLATE_ID,
       emailjsServiceId: process.env.EMAILJS_SERVICE_ID,
-      emailjsUserId: process.env.EMAILJS_USER_ID,
     },
   };
 }
