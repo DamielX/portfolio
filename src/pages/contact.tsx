@@ -32,7 +32,7 @@ const ContactPage: React.FC<IContactPage> = ({
   emailjsTemplateId,
   emailjsServiceId
 }) => {
-  init(emailjsPublicKey);
+  init(emailjsServiceId);
 
   const toast = useToast();
 
@@ -55,11 +55,11 @@ const ContactPage: React.FC<IContactPage> = ({
     setIsLoading(true);
 
     emailjs
-      .send(emailjsServiceId, "template_4be4mpe", {
+      .send(emailjsServiceId, emailjsTemplateId,  {
         from_name: name,
         from_email: email,
         message: message,
-      })
+      }, emailjsPublicKey)
       .then(
         (result) => {
           clearInput();
