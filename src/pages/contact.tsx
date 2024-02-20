@@ -53,7 +53,7 @@ const ContactPage: React.FC<IContactPage> = ({
     setIsLoading(true);
 
     emailjs
-      .send(emailjsServiceId, "teo_email_template", {
+      .send(emailjsServiceId, "damiel_email_template", {
         from_name: name,
         from_email: email,
         message: message,
