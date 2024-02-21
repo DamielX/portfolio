@@ -42,7 +42,7 @@ const SpotifySection: React.FC<ISpotifySection> = ({ song }) => {
           <VStack>
             <HStack alignSelf={{ base: "center", md: "flex-start" }} mb={2}>
               <SiSpotify size={20} color={"#1ED760"} className="rotating" />
-              <Text>Spotify</Text>
+              <Text>{song?.isPlaying ? "I am now listening to" : "Spotify"}</Text>
             </HStack>
 
             <Flex
@@ -64,14 +64,6 @@ const SpotifySection: React.FC<ISpotifySection> = ({ song }) => {
               )}
 
               <Flex flexDirection="column" ml={[0, 0, 5, 5]} mt={[5, 5, 0, 0]}>
-                <Paragraph
-                  textProps={{
-                    mb: "5px",
-                    alignSelf: ["center", "center", "flex-start", "flex-start"],
-                  }}
-                >
-                  <Text>{song?.isPlaying ? `I am now listening to` : ""}</Text>
-                </Paragraph>
                 <Heading
                   as="h2"
                   fontSize="lg"
