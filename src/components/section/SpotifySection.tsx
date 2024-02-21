@@ -64,6 +64,14 @@ const SpotifySection: React.FC<ISpotifySection> = ({ song }) => {
               )}
 
               <Flex flexDirection="column" ml={[0, 0, 5, 5]} mt={[5, 5, 0, 0]}>
+                <Paragraph
+                  textProps={{
+                    mb: "5px",
+                    alignSelf: ["center", "center", "flex-start", "flex-start"],
+                  }}
+                >
+                  <Text>{song?.isPlaying ? `I am now listening to` : ""}</Text>
+                </Paragraph>
                 <Heading
                   as="h2"
                   fontSize="lg"
@@ -71,7 +79,7 @@ const SpotifySection: React.FC<ISpotifySection> = ({ song }) => {
                   color={"blue.400"}
                   alignSelf={["center", "flex-start"]}
                 >
-                  {song?.isPlaying ? `Listening to ${song?.title}` : "Not Listening"}
+                  {song?.isPlaying ? song?.title : "Not Listening"}
                 </Heading>
 
                 <Paragraph
@@ -80,7 +88,7 @@ const SpotifySection: React.FC<ISpotifySection> = ({ song }) => {
                     alignSelf: ["center", "center", "flex-start", "flex-start"],
                   }}
                 >
-                  <Text>{song?.isPlaying ? `By ${song?.artist}` : "Spotify"}</Text>
+                  <Text>{song?.isPlaying ? song?.artist : "Spotify"}</Text>
                 </Paragraph>
               </Flex>
             </Flex>
